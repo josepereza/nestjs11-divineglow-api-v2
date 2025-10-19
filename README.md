@@ -77,6 +77,26 @@ curl -X POST http://localhost:3000/pedidos \
     ]
   }'
 ```
+## ejemplos: Crear un usuario adicional(opcional)
+```
+curl -X POST http://localhost:3000/usuarios \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "soporte",
+    "password": "1234"
+  }'
+```
+## Extra flujo completo resumido:
+🔑 POST /auth/login → obtienes token
+
+📦 GET /productos → ves los productos iniciales
+
+🛒 POST /productos → creas uno nuevo (requiere token)
+
+🧾 POST /pedidos → haces un pedido, se descuenta stock
+
+📜 GET /pedidos → ves todos los pedidos con su total
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
