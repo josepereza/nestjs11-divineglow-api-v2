@@ -21,6 +21,49 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+## ejemplos: Login (obtener token JWT)
+```bash
+curl -X POST http://localhost:3000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "admin",
+    "password": "admin"
+  }'
+```
+
+## ejemplos: Crear un nuevo producto (protegido 🔐)
+```bash
+curl -X POST http://localhost:3000/productos \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer efjfls.e2242...." \
+  -d '{
+    "name": "Bolso de Cuero Elegante",
+    "description": "Un sofisticado bolso de cuero, perfecto para cualquier ocasión.",
+    "price": 12.95,
+    "imageUrl": "/cuero.jpeg",
+    "stock": 5
+  }'
+```
+## ejemplos: Crear un pedido (controla stock automáticamente)
+```bash
+curl -X POST http://localhost:3000/pedidos \
+  -H "Content-Type: application/json" \
+  -d '{
+    "customerName": "Ana Garcia",
+    "customerEmail": "ana.garcia@example.com",
+    "customerAddress": "Av. Principal 456",
+    "lineas": [
+      {
+        "productoId": 1,
+        "cantidad": 1
+      },
+      {
+        "productoId": 2,
+        "cantidad": 2
+      }
+    ]
+  }'
+```
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
