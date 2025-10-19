@@ -30,6 +30,19 @@ curl -X POST http://localhost:3000/auth/login \
     "password": "admin"
   }'
 ```
+## ejemplos: Crear un nuevo producto (protegido 🔐) cambiar acces_token por el valor real.
+```bash
+curl -X POST http://localhost:3000/productos \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <access_token>" \
+  -d '{
+    "name": "Bolso de Cuero Elegante",
+    "description": "Un sofisticado bolso de cuero, perfecto para cualquier ocasión.",
+    "price": 12.95,
+    "imageUrl": "/cuero.jpeg",
+    "stock": 5
+  }'
+```
 
 ## ejemplos: Crear un nuevo producto (protegido 🔐)
 ```bash
