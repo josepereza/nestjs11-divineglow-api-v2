@@ -23,7 +23,7 @@ dotenv.config();
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
       entities: [Producto, Pedido, LineaPedido, Usuario],
-      synchronize: true, // para dev; en producción usar migrations
+      synchronize: false, // para dev; en producción usar migrations
       logging: false,
     }),
     ProductosModule,

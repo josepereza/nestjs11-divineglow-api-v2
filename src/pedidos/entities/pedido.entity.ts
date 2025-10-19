@@ -18,7 +18,7 @@ export class Pedido {
   @Column()
   customerEmail: string;
 
-  @Column('text')
+  @Column({ type: 'varchar', length: 255, nullable: false })
   customerAddress: string;
 
   @Column('decimal', { precision: 10, scale: 2, default: 0 })
