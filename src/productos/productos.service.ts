@@ -30,7 +30,7 @@ export class ProductosService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} user`;
+    return this.productoRepository.delete({ id });
   }
 
   async seedProducts() {
