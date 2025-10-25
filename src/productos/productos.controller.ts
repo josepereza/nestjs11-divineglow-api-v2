@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Body, UseGuards, Param } from '@nestjs/common';
 import { ProductosService } from './productos.service';
 import { CreateProductoDto } from './dto/create-producto.dto';
 import { AuthGuard } from '../auth/auth.guard';
@@ -13,9 +13,9 @@ export class ProductosController {
   }
 
   @Get(':id')
-  findOne() {
+  findOne(@Param('id') id: string) {
     // simple route placeholder; puedes extender
-    return { message: 'usa /productos para ver todo o implementa get por id' };
+    return this.productosService.findOne(+id);
   }
 
   @UseGuards(AuthGuard)
