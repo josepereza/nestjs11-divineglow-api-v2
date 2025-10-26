@@ -6,6 +6,7 @@ import { ProductosService } from '../productos/productos.service';
 import { Pedido } from './entities/pedido.entity';
 import { LineaPedido } from './entities/linea-pedido.entity';
 import { Producto } from 'src/productos/entities/producto.entity';
+import { UpdatePedidoDto } from './dto/update-pedido.dto';
 @Injectable()
 export class PedidosService {
   constructor(
@@ -78,5 +79,9 @@ export class PedidosService {
 
   findAll() {
     return this.pedidoRepository.find({ relations: ['lineas'] });
+  }
+
+  update(id: number, updatePedidoDto: UpdatePedidoDto) {
+    return this.pedidoRepository.update({ id }, { ...updatePedidoDto });
   }
 }

@@ -1,5 +1,11 @@
 import { Type } from 'class-transformer';
-import { IsArray, IsEmail, IsNotEmpty, ValidateNested } from 'class-validator';
+import {
+  IsArray,
+  IsEmail,
+  IsNotEmpty,
+  IsOptional,
+  ValidateNested,
+} from 'class-validator';
 import { CreateLineaPedidoDto } from './linea-pedido.dto';
 
 export class CreatePedidoDto {
@@ -11,6 +17,8 @@ export class CreatePedidoDto {
 
   @IsNotEmpty()
   customerAddress: string;
+  @IsOptional()
+  gesendet: boolean;
 
   @IsArray()
   @ValidateNested({ each: true })
