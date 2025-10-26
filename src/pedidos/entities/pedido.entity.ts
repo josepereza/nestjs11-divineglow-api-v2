@@ -23,7 +23,8 @@ export class Pedido {
 
   @Column('decimal', { precision: 10, scale: 2, default: 0 })
   totalAmount: number;
-
+  @Column({ type: 'boolean', default: false })
+  gesendet: boolean;
   @OneToMany(() => LineaPedido, (linea) => linea.pedido, { cascade: true })
   lineas: LineaPedido[];
 
