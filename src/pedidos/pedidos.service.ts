@@ -78,7 +78,10 @@ export class PedidosService {
   }
 
   findAll() {
-    return this.pedidoRepository.find({ relations: ['lineas'] });
+    return this.pedidoRepository.find({
+      order: { createdAt: 'DESC' }, // opcional, ordenar por fecha
+      relations: ['lineas', 'lineas.producto'], // ⚡ importante para que incluya productos
+    });
   }
 
   update(id: number, updatePedidoDto: UpdatePedidoDto) {

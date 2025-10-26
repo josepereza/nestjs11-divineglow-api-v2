@@ -20,7 +20,7 @@ export class LineaPedido {
   @Column()
   pedidoId: number;
 
-  @ManyToOne(() => Producto)
+  @ManyToOne(() => Producto, { eager: true }) // 🔹 eager:true carga el producto automáticamente
   @JoinColumn({ name: 'productoId' })
   producto: Producto;
 
